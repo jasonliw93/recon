@@ -1,0 +1,47 @@
+{% extends "recon/recon_base.html" %}
+{% load js staticfiles %}
+
+{% block page_style %}
+	{% css "recon/css/barchart.css" %}
+{% endblock %}
+
+{% block recon_content%}
+
+<div id="barchart"></div>
+
+{% endblock %}
+
+{% block page_script %}
+
+{% js "recon/js/d3.js" %}
+{% js "recon/js/c3.js" %}
+{% js "recon/js/barchart.js" %}
+
+<script type="text/javascript">
+
+	var json = {{json_data|safe}};
+
+	$(document).ready(function() {
+
+		var domChart = $("#barchart");
+		if (json.length == 0) {
+			domChart.innerHTML("<h1>No Citation is Found.</h1>");
+		} else {
+
+			var xs = [];
+			var ys = [];
+
+			$.each(json, function(i, d) {
+				xs.push(d.name);
+				ys.push(d.count);
+			});
+
+			var chart = domChart.barChart({tooltip_title: "Article Name: ", color: "#5F9F9F",
+										   tooltip_data_name: "Number of Reference",
+										   ylabel: "Number of Reference"},
+										  {x: xs, y: ys});
+		}
+	});
+</script>
+{% endblock %}
+

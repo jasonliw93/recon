@@ -1,0 +1,20 @@
+{% extends "recon/list.html" %}
+	
+	{% block list_table %}
+	<thead>
+    <th width="80%">Handle</th>
+    <th width="10%">Count</th>
+    <th width="5%"></th>
+    <th width="5%"></th>
+    </thead>
+    <tbody>
+    {% for item in object_list %}
+    <tr>
+    <td>{{item.name}}</td>
+    <td>{{item.tweet_count}}</td>
+    <td><a  class="btn btn-default" role="button" href="{% url "edit" topic_id=topic_id list_name=list_name id=item.id %}">edit</a></td>
+    <td><a  class="btn btn-default" role="button" href="{% url "delete" topic_id=topic_id list_name=list_name id=item.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    {% endblock %}

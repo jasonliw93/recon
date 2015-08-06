@@ -1,0 +1,143 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block head_title %}{{topic_title}}{% endblock %}
+{% block extra_style %}
+    <link href="{% static 'recon/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'recon/css/simple-sidebar.css' %}" rel="stylesheet">
+	<link href="{% static 'recon/style.css' %}" rel="stylesheet">	
+	{% block page_style %}
+	{% endblock %}
+{% endblock %}
+
+{% block body_base %}
+    
+	<div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                	{% url 'crawler' topic_id=topic_id as crawler %}
+                    <a href="{{crawler}}" {% if request.path == crawler %} class="active"{% endif %}>
+                        Manage Web Crawl
+                    </a>
+                </li>
+                <li>
+                	{% url 'twitter_crawler' topic_id=topic_id as twitter_crawler %}
+                    <a href="{{twitter_crawler}}" {% if request.path == twitter_crawler %} class="active"{% endif %}>
+                        Manage Twitter Crawl
+                    </a>
+                </li>
+                <h4> Topic</h4>
+                <li>
+                	{% url 'dashboard' topic_id=topic_id as dashboard%}
+                    <a href="{{dashboard}}" {% if request.path == dashboard %} class="active"{% endif %}>Network Graph</a>
+                </li>
+		<li>
+			        <li>
+                	{% url 'twitter_network_graph' topic_id=topic_id as twitter_network_graph%}
+                    <a href="{{twitter_network_graph}}" {% if request.path == twitter_network_graph %} class="active"{% endif %}>Twitter Network Graph</a>
+                </li>
+		<li>
+                	{% url 'barchart' topic_id=topic_id as barchart%}
+                    <a href="{{barchart}}" {% if request.path == barchart %} class="active"{% endif %}>Barchart</a>
+                </li>
+                <li>
+                	{% url 'barchart_twitter' topic_id=topic_id as barchart_twitter%}
+                    <a href="{{barchart_twitter}}" {% if request.path == barchart_twitter %} class="active"{% endif %}>Twitter Barchart</a>
+                </li>
+                <li>
+                {% url 'list' topic_id=topic_id list_name='domain' as manage_domain %}
+                    <a href="{{manage_domain}}" {% if request.path == manage_domain %} class="active"{% endif %}>
+                	Manage Search Domain</a>
+                </li>
+                <li>
+                	{% url 'list' topic_id=topic_id list_name='keyword' as manage_keyword %}
+                    <a href="{{manage_keyword}}" {% if request.path == manage_keyword %} class="active"{% endif %}>
+                    Manage Search Keywords</a>
+                </li>
+                <h4> Website</h4>
+                <li>
+                    {% url 'list' topic_id=topic_id list_name='watch' as manage_watch %}
+                    <a href="{{manage_watch}}" {% if request.path == manage_watch %} class="active"{% endif %}>
+                    Manage Site Watch List</a>
+                </li>
+                <li>
+                    {% url 'citation' topic_id=topic_id as citation %}
+                    <a href="{{citation}}" {% if request.path == citation %} class="active"{% endif %}>
+					View Web Citations</a>
+                </li>
+                <h4> Twitter</h4>
+                <li>
+                    {% url 'list' topic_id=topic_id list_name='handle' as manage_handle %}
+                    <a href="{{manage_handle}}" {% if request.path == manage_handle %} class="active"{% endif %}>
+                    Manage Twitter Watch List</a>
+                </li>
+                <li>
+                	{% url 'twitter_citation' topic_id=topic_id as twitter_citation %}
+                    <a href="{{twitter_citation}}" {% if request.path == twitter_citation %} class="active"{% endif %}>
+					View Twitter Citations</a>
+                </li>
+                <li>&nbsp;</li>
+                
+                
+                
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->		
+        <!-- Page Content -->
+        
+        <div class="navbar navbar-inverse" style="margin-bottom: 0px;">    
+		    <a href="#menu-toggle" id="menu-toggle" class="nav-expander navbar-left">
+		    MENU &nbsp;<i class="fa fa-bars fa-lg white"></i>
+		  </a>
+		    <a class="navbar-brand" href="#">{% block recon_title %}    Topic : {{topic_title}}{% endblock %}</a>
+		    
+		</div>
+
+
+        {% block page_content%}
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                    	
+                    	{% block recon_content%}
+                        
+                        <h3>Work in progress... Not implemeneted yet</h3>
+                        
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+	</div>
+                    
+    </div>
+    
+
+{% endblock %}
+
+{% block footer_base %}
+{% endblock %}
+
+{% block extra_script %}
+    
+    <!-- Menu Toggle Script -->
+    {% if topic_id %}
+		<script>
+		$("#menu-toggle").click(function(e) {
+		    $("#wrapper").toggleClass("toggled");
+		});
+		</script>    	
+	{% else %}
+		<script>
+			$("#wrapper").addClass("toggled");
+		</script>   
+    {% endif %}
+    {% block page_script %}
+    {% endblock %}
+{% endblock %}
+

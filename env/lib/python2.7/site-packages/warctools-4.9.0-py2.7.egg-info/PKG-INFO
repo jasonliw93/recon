@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: warctools
+Version: 4.9.0
+Summary: Command line tools and libraries for handling and manipulating WARC files (and HTTP contents)
+Home-page: UNKNOWN
+Author: Thomas Figg
+Author-email: tef@warctools.twentygototen.org
+License: MIT License
+Description: UNKNOWN
+Platform: UNKNOWN

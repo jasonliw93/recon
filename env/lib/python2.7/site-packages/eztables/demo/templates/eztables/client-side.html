@@ -1,0 +1,57 @@
+{% extends "eztables/base.html" %}
+{% load js staticfiles eztables %}
+
+{% block client-side %}active{% endblock %}
+
+{% block container %}
+<div class="page-header">
+    <h2>Client-side processing</hé>
+</div>
+
+<div class="row">
+    <table id="browser-table" class="span12 table table-bordered table-condensed table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Rendering Engine</th>
+                <th>Browser</th>
+                <th>Version</th>
+                <th>Platform(s)</th>
+                <th>Engine version</th>
+                <th>CSS Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for browser in browsers %}
+        <tr>
+            <td>{{ browser.engine.name }}</td>
+            <td>{{ browser.name }}</td>
+            <td>{{ browser.version }}</td>
+            <td>{{ browser.platform }}</td>
+            <td class="center">{{ browser.engine.version|default:"-" }}</td>
+            <td class="center">{{ browser.engine.css_grade }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <p>This table use the Twitter Bootstrap integration:</p>
+    <pre data-url="{% static "snippets/bootstrap.html" %}" class="django" />
+</div>
+
+<div class="row">
+    <p>This code is used to initialize this example:</p>
+    <pre data-url="{% static "js/eztables.client.js" %}" class="javascript"/>
+</div>
+
+<div class="row">
+    <p>Each example, uncluding this one load this common code:</p>
+    <pre data-url="{% static "js/eztables.demo.js" %}" class="javascript"/>
+</div>
+
+{% endblock %}
+
+{% block extra-script %}
+    {% js "js/eztables.client.js" %}
+{% endblock %}

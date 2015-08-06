@@ -1,0 +1,4 @@
+#!/var/www/recon/env/bin/python
+
+from scrapy.cmdline import execute
+execute()

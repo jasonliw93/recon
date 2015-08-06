@@ -1,0 +1,74 @@
+from __future__ import absolute_import
+
+from celery import shared_task
+from scrapy import log, signals
+from scrapy.crawler import Crawler
+from scrapy.utils.project import get_project_settings
+from twisted.internet import reactor
+
+import recon.crawler.reconspider as reconspider
+from recon.models import ReconTopic
+import recon.twitter.twitter_scraper as twitter_scraper
+import logging
+import os
+from django.conf import settings
+import requests
+
+from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.common.proxy import ProxyType
+
+from celery import Task
+
+
+@shared_task
+def create_warc(url):
+    browser = webdriver.PhantomJS()
+    browser.get("http://localhost/warc/record/" + url)
+    browser.quit()
+
+
+@shared_task
+def task_start_crawl(topic_id):
+    topic = ReconTopic.objects.get(id=topic_id)
+    if topic.crawl_status != topic.RUNNING:
+        topic = ReconTopic.objects.get(id=topic_id)
+    if topic.crawl_status != topic.RUNNING:
+        topic.crawl_status = topic.RUNNING
+        logger = logging.getLogger('logs.crawler.' + str(topic_id))
+        logger.setLevel(logging.INFO)
+        file_path = os.path.join(settings.PROJECT_ROOT, 'logs/crawler/')
+        file_handler = logging.FileHandler(file_path + str(topic_id) + '.log')
+        logger.addHandler(file_handler)
+        logger.info('Web Crawl Started')
+        topic.save()
+        try:
+            reconspider.run(topic_id)
+        except:
+            logger.info('Web Crawl Error')
+        logger.info('Web Crawl Finished')
+        topic.crawl_status = topic.READY
+        topic.save()
+        #send_mail('[RECON] Crawl is complete', '', fail_silently=False)
+
+
+@shared_task
+def task_start_twitter(topic_id):
+    topic = ReconTopic.objects.get(id=topic_id)
+    if topic.twitter_status != topic.RUNNING:
+        topic.twitter_status = topic.RUNNING
+        topic.save()
+        logger = logging.getLogger('logs.twitter.' + str(topic_id))
+        logger.setLevel(logging.INFO)
+        file_path = os.path.join(settings.PROJECT_ROOT, 'logs/twitter/')
+        file_handler = logging.FileHandler(file_path + str(topic_id) + '.log')
+        logger.addHandler(file_handler)
+        logger.info('Twitter Crawl Started')
+        try:
+            twitter_scraper.run(topic_id)
+        except:
+            logger.info('Twitter Crawl Error')
+        logger.info('Twitter Crawl Finished')
+        topic.twitter_status = topic.READY
+        print "DONE"
+        topic.save()

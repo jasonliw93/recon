@@ -1,0 +1,39 @@
+{% extends "recon/recon_base.html" %}
+{% load staticfiles %}
+{% load js staticfiles eztables %}
+
+{% block page_style %}
+	{% datatables_bootstrap_css %}
+{% endblock %}
+
+{% block recon_content %}
+<h3>{{title}}</h3>
+<h5>{{explain}}</h5>
+<table id="browser-table" class="span12 table table-bordered table-condensed table-striped table-hover">
+{% block list_table %}
+	<thead>
+    <th width="90%">Title</th>
+    <th width="5%"></th>
+    <th width="5%"></th>
+    </thead>
+    <tbody>
+    {% for item in object_list %}
+    <tr>
+    <td>{{item.name}}</td>
+    <td><a  class="btn btn-default" role="button" href="{% url "edit" topic_id=topic_id list_name=list_name id=item.id %}">edit</a></td>
+    <td><a  class="btn btn-default" role="button" href="{% url "delete" topic_id=topic_id list_name=list_name id=item.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+{% endblock %}
+</table>
+
+<a  class="btn btn-primary" role="button" href="{% url "new" topic_id=topic_id list_name=list_name%}">Add New</a>
+{% endblock %}
+
+{% block page_script %}
+{% django_js %}
+ {% datatables_js %}
+ {% datatables_bootstrap_js %}
+{% endblock %}
+

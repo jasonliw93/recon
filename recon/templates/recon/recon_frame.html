@@ -1,0 +1,48 @@
+{% extends "recon/recon_base.html" %}
+{% block page_style %}
+
+{% endblock %}
+
+{% block recon_title %}
+This is an <b>Archived</b> page<span id="archive_date"></span>.
+{% endblock %}
+{% block page_content%}
+<iframe id="warc_frame" src="/warc/replay/{{ warc_url }}" style="height:500px">
+    <p>Unable to create a warc view</p>
+</iframe>
+
+<p id="demo"></p>
+
+{% endblock %}
+
+{% block page_script %}    
+
+<script>
+window.myfunction = function (timestamp) {
+  document.getElementById("archive_date").innerHTML =  " from <b>" + ts_to_date(timestamp, false) + "</b>";
+}
+
+function ts_to_date(ts, is_gmt)
+{
+    if (ts.length < 14) {
+        return ts;
+    }
+    
+    var datestr = (ts.substring(0, 4) + "-" + 
+                  ts.substring(4, 6) + "-" +
+                  ts.substring(6, 8) + "T" +
+                  ts.substring(8, 10) + ":" +
+                  ts.substring(10, 12) + ":" +
+                  ts.substring(12, 14) + "-00:00");
+    
+    var date = new Date(datestr);
+    if (is_gmt) {
+        return date.toGMTString();
+    } else {
+        return date.toLocaleString();
+    }
+}
+</script>
+
+{% endblock %}
+

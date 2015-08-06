@@ -1,0 +1,57 @@
+{% extends "recon/recon_base.html" %}
+{% load js staticfiles eztables %}
+
+{% block page_style %}
+	{% datatables_bootstrap_css %}
+{% endblock %}
+
+{% block recon_content%}
+	<h3>Web Citations</h3>
+    <table style="display:none" id="browser-table" class="span12 table table-bordered table-condensed table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Links to</th>
+                <th>Date Added</th>
+            </tr>
+        </thead>
+        <tbody>
+	{% for url_citation_list in citation_list %}
+    	<tr>
+        <td valign="top"><a href="/topic/{{topic_id}}/warc/{{ url_citation_list.0.url }}/">{{ url_citation_list.0.url_title }}</a></td> 
+        	<td>
+        	<ul>
+        	{% for citation in url_citation_list %}
+        		<li>
+					{% if citation.has_hyperlink %}
+        			<a href="/topic/{{topic_id}}/warc/{{ citation.links_to }}/">{{ citation.links_to }}</a>
+		        {% else %}
+        			{{ citation.links_to }}
+        		{% endif %}
+        		</li>
+        	{% endfor %}
+        	</ul>
+        	</td>
+        	<td>
+        		{{url_citation_list.0.crawled_timestamp}}
+        	</td>
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+
+{% block page_script %}
+ {% django_js %}
+ {% datatables_js %}
+ {% datatables_bootstrap_js %}
+ {% js "recon/js/eztables.demo.js" %}
+ {% js "recon/js/eztables.client.js" %}
+ <script>
+ $(document).ready(function(){          
+     $(".pagination > ul").addClass('pagination');
+	 $('#browser-table').show();
+});
+</script>
+{% endblock %}

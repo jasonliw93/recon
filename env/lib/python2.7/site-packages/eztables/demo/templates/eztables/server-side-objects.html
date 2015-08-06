@@ -1,0 +1,31 @@
+{% extends "eztables/server-side.html" %}
+{% load js staticfiles %}
+
+{% block server-side-objects %}active{% endblock %}
+
+{% block server-side-container %}
+
+<div class="row">
+    <table id="browser-table" class="span12 display table table-bordered table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Rendering Engine</th>
+                <th>Browser</th>
+                <th>Platform(s)</th>
+                <th>Engine version</th>
+                <th>CSS Grade</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div class="row">
+    <pre data-url="{% static "js/eztables.server.objects.js" %}" class="javascript"/>
+</div>
+
+{% endblock %}
+
+{% block server-side-extra-script %}
+    {% js "js/eztables.server.objects.js" %}
+{% endblock %}

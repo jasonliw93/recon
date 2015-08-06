@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+
+{% block style_base %}
+    <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
+    <link href="{% static "css/site.css" %}" rel="stylesheet">
+    {% block extra_style %}{% endblock %}
+{% endblock %}
+
+	{% block nav %}
+	<ul class="nav navbar-nav">
+	{% if request.user.is_authenticated %}
+	    <li class="dropdown">
+		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Topics<span class="caret"></span></a>
+		  <ul class="dropdown-menu" role="menu">
+		   	{% for topic in topic_list %}
+			<li>
+			<a href="{% url 'dashboard' topic_id=topic.id%}"> {{ topic.topic }}</a>
+			</li>
+			{% endfor %}
+			<li><a href="{% url 'new_topic' %}">Add Topic</a></li>
+		  </ul>
+	     </li>
+		{% endif %}
+		<li>
+			<a href="{% static "RECON_User_Manual.pdf" %}" target="_blank">User Manual</a>
+		</li>   
+	</ul>	
+	{% endblock %}
+
+{% block extra_head_base %}
+    {% block extra_head %}{% endblock %}
+{% endblock %}
+
+
+{% block footer %}
+    {% include "_footer.html" %}
+{% endblock %}
+
+
+{% block extra_body_base %}
+    {% block extra_body %}{% endblock %}
+{% endblock %}
+
+
+{% block script_base %}
+    <script src="{% block jquery_src %}{% static "jquery/js/jquery-2.1.1.min.js" %}{% endblock %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "pinax/js/theme.js" %}"></script>
+    <script src="{% static "recon/js/bootstrap.min.js" %}"></script>
+	<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    {% block extra_script %}{% endblock %}
+{% endblock %}

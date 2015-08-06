@@ -1,0 +1,6 @@
+#!/var/www/recon/env/bin/python
+# vim: set sw=4 et:
+
+from warcprox import warcprox
+
+warcprox.main()

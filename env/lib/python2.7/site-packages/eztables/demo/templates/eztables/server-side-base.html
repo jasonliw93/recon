@@ -1,0 +1,43 @@
+{% extends "eztables/server-side.html" %}
+{% load js staticfiles %}
+
+{% block server-side-base %}active{% endblock %}
+
+{% block server-side-container %}
+
+<div class="row">
+    <p>
+        This page demonstrates the default server-side processing behavior:
+        <ul>
+            <li>Single and multi-column sorting</li>
+            <li>Global search</li>
+            <li>References data by column index</li>
+        </ul>
+    </p>
+</div>
+
+<div class="row">
+    <table id="browser-table" class="span12 display table table-bordered table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Rendering Engine</th>
+                <th>Browser</th>
+                <th>version</th>
+                <th>Platform(s)</th>
+                <th>Engine version</th>
+                <th>CSS Grade</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div class="row">
+    <pre data-url="{% static "js/eztables.server.base.js" %}" class="javascript"/>
+</div>
+
+{% endblock %}
+
+{% block server-side-extra-script %}
+    {% js "js/eztables.server.base.js" %}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "recon/recon_base.html" %}
+{% load js staticfiles eztables %}
+
+{% block page_style %}
+	{% datatables_bootstrap_css %}
+{% endblock %}
+
+{% block recon_content%}
+
+<div class="row">
+    <table id="browser-table" class="span12 table table-bordered table-condensed table-striped table-hover">
+        <thead>
+            <tr>
+    <th width="15%">Handle</th>
+    <th width="40%">Tweet</th>
+    <th width="30%">Links to</th>
+    <th width="15%">Time Tweeted</th>
+                </tr>
+        </thead>
+        <tbody>
+    
+    {% for each in citation_list %}
+    	<tr>
+	    <td>{{ each.handle_fk}}</td>
+	    <td>{{ each.tweet }}</td>
+	    <td>{{ each.links_to }}</td>
+	    <td>{{ each.datetime }}</td>
+	</tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+{% endblock %}
+
+
+{% block page_script %}
+ {% django_js %}
+ {% datatables_js %}
+ {% datatables_bootstrap_js %}
+ {% js "recon/js/eztables.demo.js" %}
+ {% js "recon/js/eztables.client.js" %}
+ <script>
+ $(document).ready(function(){          
+     $(".pagination > ul").addClass('pagination');
+});
+</script>
+{% endblock %}

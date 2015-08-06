@@ -1,0 +1,73 @@
+Metadata-Version: 1.1
+Name: pinax-theme-bootstrap
+Version: 5.5.1
+Summary: a theme for Pinax based on Bootstrap
+Home-page: http://github.com/pinax/pinax-theme-bootstrap
+Author: James Tauber
+Author-email: jtauber@jtauber.com
+License: MIT
+Description: Bootstrap Theme, for Pinax
+        ==================================
+        
+        A theme for Pinax based on the open source Bootstrap front-end framework.
+        
+        
+        Versions
+        --------
+        
+        * Bootstrap v3.2.0
+        * Font Awesome v4.1.0
+        * jQuery v2.1.1
+        
+        
+        Quick Start
+        -----------
+        
+        Include "pinax-theme-bootstrap" in your requirements file and include
+        "pinax_theme_bootstrap" and "bootstrapform" (which is installed alongside
+        this theme) in your INSTALLED APPS.
+        
+        Make sure both template loaders and staticfiles finders includes
+        app directories.
+        
+        Site name comes from Sites fixture.
+        
+        Your "site_base.html" should extend "theme_bootstrap/base.html" and should provide
+        "footer" and "nav" blocks (the latter should just be a ul of li of a links).
+        
+        Your pages should have blocks "head_title" and "body" and should extend
+        "site_base.html".
+        
+        The url name "home" should be defined as the homepage.
+        
+        
+        License & Attribution
+        ---------------------
+        
+        The Pinax Bootstrap theme is released under the MIT license.
+        
+        This theme includes styles and scripts from the Bootstrap project,
+        which is (since v3.1.0) released under the MIT license.
+        
+        For copies of both licenses, see LICENSE.
+        
+        Includes icons from `Glyphicons Free <http://glyphicons.com/>`_, licensed
+        under `CC BY 3.0 <http://creativecommons.org/licenses/by/3.0/>`_.
+        
+        Includes icons from
+        `Font Awesome <http://fortawesome.github.io/Font-Awesome/>`_.
+        
+        
+        .. _django-bootstrap-form: https://github.com/tzangms/django-bootstrap-form
+        .. _official migration guide: http://getbootstrap.com/getting-started/#migration
+        .. _PaginationTemplate: https://github.com/pinax/pinax-theme-bootstrap/blob/master/pinax_theme_bootstrap/templates/pagination/pagination.html
+        .. _django-pagination: https://github.com/ericflo/django-pagination
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Framework :: Django

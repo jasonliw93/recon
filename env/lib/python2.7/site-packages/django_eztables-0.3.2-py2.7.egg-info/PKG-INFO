@@ -1,0 +1,148 @@
+Metadata-Version: 1.1
+Name: django-eztables
+Version: 0.3.2
+Summary: jQuery Datatables integration for Django
+Home-page: https://github.com/noirbizarre/django-eztables
+Author: Axel Haustant
+Author-email: noirbizarre+django@gmail.com
+License: LGPL
+Download-URL: http://pypi.python.org/pypi/django-eztables
+Description: ===============
+        Django ezTables
+        ===============
+        
+        
+        
+        
+        Easy integration between jQuery DataTables and Django.
+        
+        Compatibility
+        =============
+        
+        Django ezTables requires Python 2.6+, Django 1.4+ and Django.js 0.7.6+.
+        
+        
+        Installation
+        ============
+        
+        You can install Django ezTables with pip:
+        
+        ::
+        
+            $ pip install django-eztables
+        
+        or with easy_install:
+        
+        ::
+        
+            $ easy_install django-eztables
+        
+        
+        Add ``djangojs`` and ``eztables`` to your ``settings.INSTALLED_APPS``.
+        
+        
+        Features
+        ========
+        
+        - Datatables.net, plugins and localization integration with Django.
+        - Server-side processing with a simple view supporting:
+            - sorting (single and multi columns)
+            - filtering with regex support (global and by column)
+            - formatting using format pattern
+        - Deferred loading support.
+        - Twitter Bootstrap integration.
+        
+        
+        Demo
+        ====
+        
+        You can try the demo by cloning this repository and running the test server with provided data:
+        
+        ::
+        
+            $ python manage.py syncdb
+            $ python manage.py loaddata eztables/demo/fixtures/browsers.json
+            $ python manage.py runserver
+        
+        Then open your browser to http://localhost:8000
+        
+        
+        Documentation
+        =============
+        
+        The documentation is hosted `on Read the Docs <http://django-eztables.readthedocs.org/en/0.3.2/>`_
+        
+        Changelog
+        =========
+        
+        0.3.2 (2013-06-07)
+        ------------------
+        
+        - Python 2.6 support
+        
+        
+        0.3.1 (2013-05-05)
+        ------------------
+        
+        - Prevent errors on regex lookups with SQLite (`issue #5 <https://github.com/noirbizarre/django-eztables/issues/5>`_)
+        
+        
+        0.3.0 (2013-04-30)
+        ------------------
+        
+        - Python 3 support
+        - Documented integration with Django Pipeline or RequireJS
+        - Package the unminified version too (used when ``settings.DEBUG=True``)
+        
+        
+        0.2.2 (2013-03-02)
+        ------------------
+        
+        - Django 1.5 compatibility
+        - Added custom search and sort demo
+        
+        
+        0.2.1 (2013-02-08)
+        ------------------
+        
+        - Fix formatting with unicode
+        
+        
+        0.2 (2013-02-07)
+        ----------------
+        
+        - Handle custom server-side search implementation
+        - Handle custom server-side sort implementation
+        
+        
+        0.1.2 (2013-02-07)
+        ------------------
+        
+        - Fix static files packaging
+        
+        
+        0.1.1 (2013-02-07)
+        ------------------
+        
+        - Fix requirements packaging
+        
+        
+        0.1 (2013-02-07)
+        ----------------
+        
+        - Initial implementation
+        
+        
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Environment :: Web Environment
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: System :: Software Distribution
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)

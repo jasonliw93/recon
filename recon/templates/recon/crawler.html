@@ -1,0 +1,33 @@
+{% extends "recon/recon_base.html" %}
+{% load staticfiles %}
+
+{% block recon_content %}
+<h3>{{title}}</h3>
+<h4>Status : {{status}}</h4>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Start" name="_start" {% if state == 1%} disabled {% endif %}>
+    <input type="submit" value="Stop" name="_stop" {% if state == 0 or state == 2%} disabled {% endif %}>
+</form>
+<textarea id="log" rows="17" cols="100">
+</textarea>
+
+{% endblock %}
+
+{% block page_script %}
+<script>
+
+function doUpdate() {
+  $.ajax({type: "GET", url : "get_crawl_log",
+          success: function (data) {
+             if (data.length > 4)
+             {
+                $("textarea#log").val(data);
+             }
+             setTimeout("doUpdate()", 2000);
+           }});
+}
+setTimeout("doUpdate()", 1000);
+</script>
+{% endblock %}
