@@ -74,26 +74,3 @@ libssl-dev <br>
 python-dev <br>
 
 Dear User: Are you confused? No idea where to start in our awesome website? Find answers to all your life questions at RECON_User_Manual.pdf, saved under the root directory.
-
-conf
-----
-<VirtualHost *:80>
-
-WSGIDaemonProcess recon python-path=/var/www/recon:/var/www/recon/env/lib/python2.7/site-packages
-WSGIProcessGroup recon
-WSGIScriptAlias / /var/www/recon/recon_site/wsgi.py
-
-Alias /favicon.ico /var/www/recon/site_media/static/favicon.ico
-Alias /site_media/static/ /var/www/recon/site_media/static/
-
-<Directory /var/www/recon/site_media/static/>
-	Require all granted
-</Directory>
-
-
-	ServerAdmin webmaster@localhost
-	DocumentRoot /var/www/recon
-
-	ErrorLog ${APACHE_LOG_DIR}/error.log
-	CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
