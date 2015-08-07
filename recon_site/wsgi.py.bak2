@@ -12,13 +12,8 @@ from werkzeug.wsgi import DispatcherMiddleware
 
 
 import os
-import sys
-import site
 
-site.addsitedir('/var/www/recon/env')
-
-sys.path.append('/var/www/recon/recon_site')
-sys.path.append('/var/www/recon/recon')
+site.addsitedir('~/.virtualenvs/recon_env/local/lib/python2.7/site-packages')
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "recon_site.settings")
 os.environ.setdefault("CELERY_LOADER", "django")

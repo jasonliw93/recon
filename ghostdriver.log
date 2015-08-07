@@ -1,6 +1,99 @@
 PhantomJS is launching GhostDriver...
-[INFO  - 2015-08-06T02:48:33.794Z] GhostDriver - Main - running on port 53407
-[INFO  - 2015-08-06T02:48:34.689Z] Session [a17272d0-3be5-11e5-b6bd-7dd60e6adaf8] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34","webSecurityEnabled":true}
-[INFO  - 2015-08-06T02:48:34.689Z] Session [a17272d0-3be5-11e5-b6bd-7dd60e6adaf8] - page.customHeaders:  - {}
-[INFO  - 2015-08-06T02:48:34.689Z] Session [a17272d0-3be5-11e5-b6bd-7dd60e6adaf8] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"1.9.8","driverName":"ghostdriver","driverVersion":"1.1.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
-[INFO  - 2015-08-06T02:48:34.689Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: a17272d0-3be5-11e5-b6bd-7dd60e6adaf8
+[INFO  - 2015-08-06T23:53:49.995Z] GhostDriver - Main - running on port 57277
+[INFO  - 2015-08-06T23:53:50.374Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34","webSecurityEnabled":true}
+[INFO  - 2015-08-06T23:53:50.374Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.customHeaders:  - {}
+[INFO  - 2015-08-06T23:53:50.374Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"1.9.8","driverName":"ghostdriver","driverVersion":"1.1.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2015-08-06T23:53:50.374Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 62b88910-3c96-11e5-bf81-9f093801a62a
+[ERROR - 2015-08-06T23:53:51.410Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - msg: ReferenceError: Can't find variable: Window
+[ERROR - 2015-08-06T23:53:51.410Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - stack:
+  init_open_override (http://jasonliw.ca/site_media/static/js/wombat.js:646)
+  wombat_init (http://jasonliw.ca/site_media/static/js/wombat.js:793)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://www.aljazeera.com/news/2015/08/suicide-attack-mosque-saudi-arabia-southwest-150806110739697.html:12)
+[ERROR - 2015-08-06T23:53:51.411Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating 'window.parent.myfunction( wbinfo.timestamp)')
+[ERROR - 2015-08-06T23:53:51.412Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - stack:
+  (anonymous function) (http://jasonliw.ca/site_media/static/js/wb.js:19)
+[ERROR - 2015-08-06T23:53:51.412Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - msg: ReferenceError: Can't find variable: _wb_js
+[ERROR - 2015-08-06T23:53:51.412Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - stack:
+  (anonymous function) (http://jasonliw.ca/warc/record/http://www.aljazeera.com/news/2015/08/suicide-attack-mosque-saudi-arabia-southwest-150806110739697.html:27)
+[ERROR - 2015-08-06T23:53:52.258Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - msg: TypeError: 'undefined' is not an object (evaluating 'document.WB_wombat_cookie.split')
+[ERROR - 2015-08-06T23:53:52.258Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - stack:
+  readCookie (http://jasonliw.ca/warc/record/js_/http://www.aljazeera.com/assets/scripts/SiteScripts.js?i=4:434)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://www.aljazeera.com/assets/scripts/SiteScripts.js?i=4:445)
+[ERROR - 2015-08-06T23:53:52.259Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - msg: TypeError: 'undefined' is not an object (evaluating 'document.WB_wombat_cookie.split')
+[ERROR - 2015-08-06T23:53:52.259Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - stack:
+  readCookie (http://jasonliw.ca/warc/record/js_/http://www.aljazeera.com/assets/scripts/Brightcove.js?c=8:42)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://www.aljazeera.com/assets/scripts/Brightcove.js?c=8:54)
+[ERROR - 2015-08-06T23:53:52.584Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - msg: TypeError: 'undefined' is not an object (evaluating 'document.WB_wombat_cookie.match')
+[ERROR - 2015-08-06T23:53:52.584Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - stack:
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://cdn.gigya.com/js/gigya.js?apikey=3_6G4aGVfJdVoChfuB5nfPCBHvzYFfWvvhwmQz1-hHZo-mUDJ29NmDtcfEHx3L8ZjY:116)
+  e (http://jasonliw.ca/warc/record/js_/http://cdn.gigya.com/js/gigya.js?apikey=3_6G4aGVfJdVoChfuB5nfPCBHvzYFfWvvhwmQz1-hHZo-mUDJ29NmDtcfEHx3L8ZjY:337)
+  q (http://jasonliw.ca/warc/record/js_/http://cdn.gigya.com/js/gigya.js?apikey=3_6G4aGVfJdVoChfuB5nfPCBHvzYFfWvvhwmQz1-hHZo-mUDJ29NmDtcfEHx3L8ZjY:343)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://cdn.gigya.com/js/gigya.js?apikey=3_6G4aGVfJdVoChfuB5nfPCBHvzYFfWvvhwmQz1-hHZo-mUDJ29NmDtcfEHx3L8ZjY:346)
+  p (http://jasonliw.ca/warc/record/js_/http://cdn.gigya.com/js/gigya.js?apikey=3_6G4aGVfJdVoChfuB5nfPCBHvzYFfWvvhwmQz1-hHZo-mUDJ29NmDtcfEHx3L8ZjY:341)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://cdn.gigya.com/js/gigya.js?apikey=3_6G4aGVfJdVoChfuB5nfPCBHvzYFfWvvhwmQz1-hHZo-mUDJ29NmDtcfEHx3L8ZjY:347)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://cdn.gigya.com/js/gigya.js?apikey=3_6G4aGVfJdVoChfuB5nfPCBHvzYFfWvvhwmQz1-hHZo-mUDJ29NmDtcfEHx3L8ZjY:347)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://cdn.gigya.com/js/gigya.js?apikey=3_6G4aGVfJdVoChfuB5nfPCBHvzYFfWvvhwmQz1-hHZo-mUDJ29NmDtcfEHx3L8ZjY:347)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://cdn.gigya.com/js/gigya.js?apikey=3_6G4aGVfJdVoChfuB5nfPCBHvzYFfWvvhwmQz1-hHZo-mUDJ29NmDtcfEHx3L8ZjY:347)
+[ERROR - 2015-08-06T23:53:52.907Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - msg: TypeError: 'null' is not an object (evaluating 'container.style.display='inline-block'')
+[ERROR - 2015-08-06T23:53:52.907Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - stack:
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://admin.brightcove.com/js/BrightcoveExperiences.js:39)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://admin.brightcove.com/js/BrightcoveExperiences.js:6)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://www.aljazeera.com/news/2015/08/suicide-attack-mosque-saudi-arabia-southwest-150806110739697.html:376)
+[ERROR - 2015-08-06T23:53:53.058Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - msg: TypeError: 'undefined' is not an object (evaluating 'document.WB_wombat_cookie.split')
+[ERROR - 2015-08-06T23:53:53.058Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - stack:
+  readCookie (http://jasonliw.ca/warc/record/js_/http://www.aljazeera.com/assets/scripts/JsonFeed.js:15)
+  checkCookies (http://jasonliw.ca/warc/record/js_/http://www.aljazeera.com/assets/scripts/JsonFeed.js:59)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://www.aljazeera.com/assets/scripts/JsonFeed.js:2)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://www.aljazeera.com/assets/scripts/jquery-1.11.1.min.js?i=1:2)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://www.aljazeera.com/assets/scripts/jquery-1.11.1.min.js?i=1:2)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://www.aljazeera.com/assets/scripts/jquery-1.11.1.min.js?i=1:2)
+  J (http://jasonliw.ca/warc/record/js_/http://www.aljazeera.com/assets/scripts/jquery-1.11.1.min.js?i=1:2)
+[ERROR - 2015-08-06T23:53:53.059Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - msg: TypeError: 'null' is not an object (evaluating 'container.style.display='inline-block'')
+[ERROR - 2015-08-06T23:53:53.059Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - stack:
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://admin.brightcove.com/js/BrightcoveExperiences.js:39)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://admin.brightcove.com/js/BrightcoveExperiences.js:6)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://admin.brightcove.com/js/BrightcoveExperiences.js:86)
+[ERROR - 2015-08-06T23:53:53.349Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - msg: TypeError: 'undefined' is not an object (evaluating 'document.WB_wombat_cookie.split')
+[ERROR - 2015-08-06T23:53:53.349Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - stack:
+  c (http://jasonliw.ca/warc/record/http://me-cdn.effectivemeasure.net/em.js:1)
+  a (http://jasonliw.ca/warc/record/http://me-cdn.effectivemeasure.net/em.js:1)
+  f (http://jasonliw.ca/warc/record/http://me-cdn.effectivemeasure.net/em.js:1)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://me-cdn.effectivemeasure.net/em.js:1)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://me-cdn.effectivemeasure.net/em.js:1)
+[ERROR - 2015-08-06T23:53:53.399Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - msg: TypeError: 'undefined' is not an object (evaluating 'document.WB_wombat_cookie.split')
+[ERROR - 2015-08-06T23:53:53.399Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - stack:
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://f1.eu.readspeaker.com/script/5707/ReadSpeaker.Core.js?v=2.5.8.3253:39)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://f1.eu.readspeaker.com/script/5707/ReadSpeaker.Core.js?v=2.5.8.3253:39)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://f1.eu.readspeaker.com/script/5707/ReadSpeaker.Common.Settings.js?v=2.5.8.3253:1)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://f1.eu.readspeaker.com/script/5707/ReadSpeaker.Common.Settings.js?v=2.5.8.3253:27)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://f1.eu.readspeaker.com/script/5707/mods/enlargeHL/ReadSpeaker.enlargeHL.js?v=...3253:22)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://f1.eu.readspeaker.com/script/5707/ReadSpeaker.js?pids=embhl,custom&skin=ReadSpeakerFloatingSkin:18)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://f1.eu.readspeaker.com/script/5707/mods/enlargeHL/ReadSpeaker.enlargeHL.js?v=...3253:23)
+[ERROR - 2015-08-06T23:53:54.111Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - msg: TypeError: 'undefined' is not an object (evaluating 'document.WB_wombat_cookie.indexOf')
+[ERROR - 2015-08-06T23:53:54.111Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - stack:
+  _71 (http://jasonliw.ca/warc/record/http://cdn.mouseflow.com/projects/f9672d00-7a4d-4e54-8581-ee611286a05d.js:1)
+  _232 (http://jasonliw.ca/warc/record/http://cdn.mouseflow.com/projects/f9672d00-7a4d-4e54-8581-ee611286a05d.js:1)
+  _104 (http://jasonliw.ca/warc/record/http://cdn.mouseflow.com/projects/f9672d00-7a4d-4e54-8581-ee611286a05d.js:1)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://cdn.mouseflow.com/projects/f9672d00-7a4d-4e54-8581-ee611286a05d.js:1)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://www.aljazeera.com/assets/scripts/jquery-1.11.1.min.js?i=1:3)
+  (anonymous function) (http://jasonliw.ca/warc/record/js_/http://www.aljazeera.com/assets/scripts/jquery-1.11.1.min.js?i=1:3)
+[ERROR - 2015-08-06T23:53:54.278Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - msg: TypeError: 'undefined' is not an object (evaluating 'document.WB_wombat_cookie.split')
+[ERROR - 2015-08-06T23:53:54.278Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - stack:
+  (anonymous function) (http://jasonliw.ca/warc/record/http://static.chartbeat.com/js/chartbeat.js:18)
+  Ta (http://jasonliw.ca/warc/record/http://static.chartbeat.com/js/chartbeat.js:21)
+  Sa (http://jasonliw.ca/warc/record/http://static.chartbeat.com/js/chartbeat.js:20)
+  R (http://jasonliw.ca/warc/record/http://static.chartbeat.com/js/chartbeat.js:24)
+  U (http://jasonliw.ca/warc/record/http://static.chartbeat.com/js/chartbeat.js:33)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://static.chartbeat.com/js/chartbeat.js:38)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://static.chartbeat.com/js/chartbeat.js:52)
+[ERROR - 2015-08-06T23:53:54.821Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - msg: TypeError: 'undefined' is not an object (evaluating 'document.WB_wombat_cookie.split')
+[ERROR - 2015-08-06T23:53:54.821Z] Session [62b88910-3c96-11e5-bf81-9f093801a62a] - page.onError - stack:
+  (anonymous function) (http://jasonliw.ca/warc/record/http://track.qcri.org/v2-track-min.js:71)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://track.qcri.org/v2-track-min.js:49)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://track.qcri.org/v2-track-min.js:47)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://track.qcri.org/v2-track-min.js:47)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://track.qcri.org/v2-track-min.js:140)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://track.qcri.org/v2-track-min.js:138)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://track.qcri.org/v2-track-min.js:140)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://track.qcri.org/v2-track-min.js:240)
+  (anonymous function) (http://jasonliw.ca/warc/record/http://track.qcri.org/v2-track-min.js:240)
